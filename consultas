@@ -1,4 +1,4 @@
---Muestra lista unica de la columna PAIS ordenado de forma descendente
+--Muestra lista unica de la columna PAIS ordenado de forma descendente resultado en la imagen sql 1.png
 SELECT DISTINCT PAIS
 FROM DataLakeCRE.dbo.CRE_LIMPIEZA
 ORDER BY PAIS DESC
