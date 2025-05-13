@@ -41,3 +41,27 @@ FROM DataLakeCRE.dbo.CRE_LIMPIEZA
 ORDER BY PAIS DESC
 OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
 
+--En la columna EDAD_ANOS realiza la suma de los años y los registros de la tabla, resultado de la consulta en la imagen sql 8.png 
+SELECT  SUM(EDAD_ANOS), COUNT(EDAD_ANOS)
+FROM DataLakeCRE.dbo.CRE_LIMPIEZA
+
+--En la columna EDAD_ANOS realiza la suma de los años y los registros de la tabla, con la condicion solo para el genero femenino
+--y estado civil soltero, resultado de la consulta en la imagen sql 9.png 
+SELECT  SUM(EDAD_ANOS), COUNT(EDAD_ANOS)
+FROM DataLakeCRE.dbo.CRE_LIMPIEZA
+WHERE GENERO = 'FEMENINO'
+AND ESTADO_CIVIL  = 'SOLTERO'
+
+--Muestra el registro de año mas antiguo y el mas reciente, resultado de la consulta en la imagen sql 10.png
+SELECT MIN(FECHA_DE_REGISTRO) AS "registro de año antiguo", MAX(FECHA_DE_REGISTRO) AS "registro de año reciente"
+FROM  DataLakeCRE.dbo.CRE_LIMPIEZA
+
+--Promedio de la edad en años Colombianos registrados en el exterior, resultado de la consulta en la imagen sql 11.png
+SELECT AVG(EDAD_ANOS) AS "PROMEDIO DE AÑOS"
+FROM CRE_LIMPIEZA cl 
+
+--Desviacion estandar de la edad en años Colombianos registrados en el exterior, resultado de la consulta en la imagen sql 12.png
+SELECT STDEVP(EDAD_ANOS) AS "desviacion estandar"
+FROM CRE_LIMPIEZA cl
+
+
