@@ -8,7 +8,36 @@ SELECT DISTINCT PAIS, GRUPO_EDAD
 FROM DataLakeCRE.dbo.CRE_LIMPIEZA
 ORDER BY PAIS DESC
 
---Muestra las filas de las columnas EDAD_ANOS y GENERO ordenado de forma descendente por EDAD_ANOS
+--Muestra las filas de las columnas EDAD_ANOS y GENERO ordenado de forma descendente por EDAD_ANOS, resultado de la consulta en la imagen sql 3.png
 SELECT DISTINCT EDAD_ANOS , GENERO  
 FROM DataLakeCRE.dbo.CRE_LIMPIEZA
 ORDER BY EDAD_ANOS DESC
+
+--Muestra las filas de los 100 primeros registros de la tabla CRE_LIMPIEZA, resultado de la consulta en la imagen sql 4.png
+SELECT TOP(100) * 
+from DataLakeCRE.dbo.CRE_LIMPIEZA
+
+--Muestra las filas de la tabla CRE_LIMPIEZA del pais Estados Unidos con las condiciones
+--ciudad de residencia Floida/Miami, genero femenino, nivel academico bachillerato y ordenado
+--por edad en años, resultado de la consulta en la imagen sql 5.png
+SELECT * 
+from DataLakeCRE.dbo.CRE_LIMPIEZA
+WHERE PAIS = 'ESTADOS UNIDOS'
+AND CIUDAD_DE_RESIDENCIA = 'FLORIDA/MIAMI'
+AND GENERO = 'FEMENINO'
+AND NIVEL_ACADEMICO = 'BACHILLERATO'
+ORDER BY EDAD_ANOS
+
+--Muestra las filas de los 10 primeros registros de la tabla CRE_LIMPIEZA se ordenan por genero alfabeticamente, 
+--resultado de la consulta en la imagen sql 6.png 
+SELECT TOP(10) * 
+from DataLakeCRE.dbo.CRE_LIMPIEZA
+ORDER BY GENERO ASC
+
+--Muestra las filas de los 10 ultimos registros de la tabla CRE_LIMPIEZA en el orden descendente del alfabeto, resultado de la consulta 
+--en la imagen sql 7.png 
+SELECT *
+FROM DataLakeCRE.dbo.CRE_LIMPIEZA
+ORDER BY PAIS DESC
+OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+
