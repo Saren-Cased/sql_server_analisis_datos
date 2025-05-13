@@ -1,4 +1,9 @@
---Muestra lista unica de la columna PAIS ordenado de forma descendente resultado en la imagen sql 1.png
+--Muestra lista unica de la columna PAIS ordenado de forma descendente, resultado de la consulta en la imagen sql 1.png
 SELECT DISTINCT PAIS
+FROM DataLakeCRE.dbo.CRE_LIMPIEZA
+ORDER BY PAIS DESC
+
+--Muestra las filas de las columnas PAIS y GRUPO_EDAD ordenado de forma descendente por pais, resultado de la consulta en la imagen sql 2.png
+SELECT DISTINCT PAIS, GRUPO_EDAD 
 FROM DataLakeCRE.dbo.CRE_LIMPIEZA
 ORDER BY PAIS DESC
